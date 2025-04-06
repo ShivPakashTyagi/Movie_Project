@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie</title>
+</head>
+<body>
+<table style="background-color: cyan;">
+    <tr>
+        <td>
+            <h2>Movie Information</h2>
+            <p><strong>MovieId</strong> <span th:text="${movieAttribute.id}"></span></p>
+            <p><strong>Movie</strong> <span th:text="${movieAttribute.movieName}"></span></p>
+            <p><strong>MovieType</strong> <span th:text="${movieAttribute.movieType}"></span></p>
+            <p><strong>LeadRoal</strong> <span th:text="${movieAttribute.leadRole}"></span></p>
+            <p><strong>Budget</strong> <span th:text="${movieAttribute.budget}"></span></p>
+            <p><strong>Theater</strong> <span th:text=" ${movieAttribute.movieTheater}"></span></p>
+            <p><strong>Location</strong><span th:text="${movieAttribute.location}"></span></p>
+            <p><strong>ShowTimings</strong><span th:text="${movieAttribute.showTimings}"></span></p>
+        </td>
+        <td>
+
+            <img th:src="@{/findphotobyid/{id}(id=${movieAttribute.id})}" alt="Photo" width="200px"/>
+        </td>
+
+    </tr>
+</table>
+<br>
+<a th:href="@{/returnmovielist}"><button type="button">Show Movie List</button></a>
+</body>
+</html>

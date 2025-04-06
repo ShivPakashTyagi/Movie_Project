@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Photo Gallery</title>
+</head>
+<body>
+<h2>Photo Gallery</h2>
+<div>
+    <ul>
+        <li th:each="photo : ${photoListAttribute}">
+            <img th:src="@{/findphotobyid/{id}(id=${photo.id})}" alt="Photo" width="200px"/>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

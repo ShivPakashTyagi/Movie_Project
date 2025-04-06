@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>movie List</title>
+</head>
+<body>
+<h2>movie List Information</h2>
+<table border="2">
+    <thead>
+        <td>Id</td>
+        <td>Movie Name</td>
+        <td>Movie Type</td>
+        <td>Lead Roal</td>
+        <td>Budget</td>
+        <td>Theater And Location</td>
+        <td>Movie Poster</td>
+        <td>Redirect Movie</td>
+    </thead>
+<!--    <td>-->
+<!--        <p>Redirect Movie</p>-->
+
+<!--    </td>-->
+    <tr th:each="singleMovieValue : ${movieListAttribute}">
+        <td th:text="${singleMovieValue.id}"></td>
+        <td th:text="${singleMovieValue.movieName}"></td>
+        <td th:text="${singleMovieValue.movieType}"></td>
+        <td th:text="${singleMovieValue.leadRole}"></td>
+        <td th:text="${singleMovieValue.budget}"></td>
+        <td>
+           <p th:text="${singleMovieValue.movieTheater}"> </p>
+            <p th:text="${singleMovieValue.location}"></p>
+            <p th:text="${singleMovieValue.showTimings}"></p>
+        </td>
+        <td>
+            <img th:src="@{/findphotobyid/{id}(id=${singleMovieValue.id})}" alt="Photo" width="200px"/>
+        </td>
+        <td>
+            <p><a th:href="@{/findmovebyid/{id}(id=${singleMovieValue.id})}"><button type="button">show This Movie</button></a></p>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+
